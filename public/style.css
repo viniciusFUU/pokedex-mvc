@@ -119,7 +119,7 @@ section#cadastro form label{
 
 section#cadastro form button{
     padding: .6rem;
-    width: 20%;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -205,4 +205,10 @@ footer p a:hover{
     color: rgb(255, 230, 43);
     transition: .5s;
     font-size: 1.22rem;
+}
+
+@media (max-width: 978px) {
+    section#cadastro img{
+        display: none;
+    }
 }
