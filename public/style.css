@@ -2,19 +2,48 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
 }
 
-header{
-    padding: 2rem;
+nav{
     background-color: red;
     border: 5px solid black;
-    border-radius: 2rem ;
+    border-radius: 2rem;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
 }
 
-header h1{
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li{
+    padding: 1.2rem;
+}
+
+nav h1{
     color: white;
     font-size: 3rem;
     text-align: center;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+nav img{
+    width: 5%;
+}
+
+header img{
+    width: 100%;
+    margin: 6rem 0 0 0;
 }
 
 main{
@@ -63,7 +92,7 @@ section#cadastro{
 }
 
 section#cadastro img{
-    width: 30%;
+    width: 50%;
 }
 
 section#cadastro form{
@@ -110,23 +139,70 @@ section#cadastro form button:hover{
 
 section#cards div.card a{
     padding: .6rem;
-    width: 20%;
+    width: 80%;
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    border: 1px solid red;
+    border: 1px solid blue;
     border-radius: .5rem;
     font-size: 1rem;
     background-color: white;
-    color: red;
-    border-color: red;
+    color: blue;
+    border-color: blue;
     text-decoration: none;
     margin-top: 1rem;
 }
 
 section#cards div.card a:hover{
-    background-color: red;
+    background-color: blue;
     color: white;
+    border: 1px solid black;
     transition: .19s;
     cursor: pointer;
+}
+
+section#cards div.card a#deletar{
+    padding: .6rem;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: .5rem;
+    font-size: 1rem;
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+section#cards div.card a#deletar:hover{
+    background-color: white;
+    color: red;
+    transition: .19s;
+    cursor: pointer;
+    border: 1px solid red;
+}
+
+footer{
+    background-color: red;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+}
+
+footer p{
+    padding: .5rem;
+}
+
+footer p a{
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+footer p a:hover{
+    color: rgb(255, 230, 43);
+    transition: .5s;
+    font-size: 1.22rem;
 }
