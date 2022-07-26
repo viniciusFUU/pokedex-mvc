@@ -51,9 +51,9 @@ const pokedex = [
       "Many power plants keep Ground-type Pokémon around as a defense against Electabuzz that come seeking electricity.",
     tipo: "Electric",
     imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/125.png",
-    altura: "0.5 m",
-    peso: "9.0 kg",
-    habilidade: "Torrent",
+    altura: "1.1 m",
+    peso: "30.0 kg",
+    habilidade: "Static",
   },
 
   {
@@ -63,9 +63,9 @@ const pokedex = [
       "It is not satisfied unless it eats over 880 pounds of food every day. When it is done eating, it goes promptly to sleep.",
     tipo: "normal",
     imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png",
-    altura: "0.5 m",
-    peso: "9.0 kg",
-    habilidade: "Torrent",
+    altura: "2.1 m",
+    peso: "460.0 kg",
+    habilidade: "Thick Fat",
   },
 
   {
@@ -73,25 +73,45 @@ const pokedex = [
     nome: "Gengar",
     descricao:
       "On the night of a full moon, if shadows move on their own and laugh, it must be Gengar’s doing.",
-    tipo: "agua",
+    tipo: "Shadow",
     imagem: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/094.png",
-    altura: "0.5 m",
-    peso: "9.0 kg",
-    habilidade: "Torrent",
+    altura: "1.5 m",
+
+    peso: "40.5 kg",
+    habilidade: "Cursed Body",
   },
 ];
 
-//rotas
+let pokemon = undefined;
 
+//rotas
 app.get("/", (req, res) => {
-  res.render("index", { pokedex });
+  res.render("index", { pokedex, pokemon });
 });
 
-app.post("/add", (req, res) => {
+app.post("/create", (req, res) => {
   const pokemon = req.body;
 
+  pokemon.id = pokedex.length + 1;
   pokedex.push(pokemon);
 
+  res.redirect("/");
+});
+
+app.get("/detalhes/:id", (req, res) => {
+  const id = +req.params.id;
+  pokemon = pokedex.find((pokemon) => pokemon.id === id);
+  res.redirect("/");
+});
+
+app.post("/update/:id", (req, res) => {
+  const id = +req.params.id - 1;
+  const newPokemon = req.body;
+
+  newPokemon.id = id + 1;
+  pokedex[id] = newPokemon;
+
+  pokemon = undefined;
   res.redirect("/");
 });
 
